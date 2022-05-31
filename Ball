@@ -1,0 +1,36 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class Ball : MonoBehaviour
+{
+
+    private int[] chet = new int[2];
+    public Text LOX, Me;
+    public Transform trans;
+
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        Me.text = chet[0].ToString();
+        LOX.text = chet[1].ToString();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "Me")
+        {
+            chet[1] += 1;
+            transform.position = trans.transform.position;
+        }
+
+        else if (other.name == "LOX") 
+        {
+            chet[0] += 1;
+            transform.position = trans.transform.position;
+        }
+    }
+  
+}
